@@ -1,1 +1,39 @@
-
+.logoImgs{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    
+}
+.signUpCard{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    width: 60%;
+    background-color: #FAFBFC;
+    border-radius: 10px;
+}
+.signUpGrid{
+    background: #2B3137 url("assets/imgs/simple-codelines.svg") no-repeat fixed center; 
+    height: 600px;
+}
+ion-input{
+    border : 1px black solid;
+    border-radius: 5px;
+    font-size: 16px;
+}
+ion-label{
+    font-weight: bold;
+    opacity: 0.7;
+    font-size: 16px;
+}
+.catGrid{
+    width: 60%;
+}
+.errBar{
+    background: #f04141;
+    color: white;
+    
+}

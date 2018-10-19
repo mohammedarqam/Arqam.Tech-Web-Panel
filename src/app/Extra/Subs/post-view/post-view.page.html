@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{pName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-content>
+      <div *ngFor="let l of postView" [innerHtml]="l.Data" ></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

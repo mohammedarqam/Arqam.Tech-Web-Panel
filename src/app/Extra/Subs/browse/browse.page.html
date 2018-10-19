@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>browse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let c of cats" col-2  class="curs" (click)="gtCat(c.Name)" >
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title>{{c.Name}}</ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+<ion-grid>
+  <ion-row>
+    <ion-col size="3" *ngFor="let p of posts" >
+      <ion-card>
+        <ion-card-content>
+          <ion-card-title class="caps" >{{p.Title}}</ion-card-title>
+
+          <ion-grid>
+            <ion-row>
+              <ion-button class="rightBtn" (click)="gtPost(p.key)">Read More</ion-button> <br />
+            </ion-row>
+            <ion-row>
+              <ion-badge class="curs" color="secondary" (click)="gtCat(c)" *ngFor="let c of p.Categories">{{c}}</ion-badge>
+            </ion-row>
+            <ion-row>
+              <ion-badge class="curs" color="primary" (click)="gtLevel(p.Level)" >{{p.Level}}</ion-badge>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>
