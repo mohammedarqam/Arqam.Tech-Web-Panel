@@ -1,5 +1,7 @@
 {
   "name": "Arqam.Tech",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

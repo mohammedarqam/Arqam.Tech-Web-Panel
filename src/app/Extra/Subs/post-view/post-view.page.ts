@@ -10,15 +10,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class PostViewPage implements OnInit {
   postId : string;
-  postRef =this.db.object(`Posts/${this.postId}`);
-
-  postContentRef =this.db.list(`Content/${this.postId}`);
-  postView : Array<any> = [];
-
 
   pName : string = '';
   time: string;
   authName: string;
+
+
+  postView : Array<any> = [];
+
 
   constructor(
     private route: ActivatedRoute,
@@ -42,25 +41,15 @@ export class PostViewPage implements OnInit {
   }
 
   getPost(){
-    // this.postContentRef.snapshotChanges().subscribe(snap=>{
-    //   this.postView = [];
-    //   snap.forEach(snp=>{
-    //     let temp : any = snp.payload.val();
-    //     temp.Priority = snp.key;
-    //     console.log(temp);
-    //     this.postView.push(temp);
-    //   })
-    //   // console.log(this.postView)
-    // })
-    firebase.database().ref("Content").child(this.postId).once("value",snap=>{
-      this.postView = [];
-      snap.forEach(snp=>{
-        let temp = snp.val();
+    firebase.database().ref("Content").child(this.postId).once("value",itemSnap=>{
+      itemSnap.forEach(item=>{
+        var temp = item.val();
+        temp.key = item.key;
         temp.Data = this.sanitizer.bypassSecurityTrustHtml(temp.Data);
-        temp.key = snp.key;
-        this.postView.push(temp)
+        this.postView.push(temp);
       })
     })
   }
+
 
 }
